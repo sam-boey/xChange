@@ -1,0 +1,15 @@
+<h1>Currencies#index</h1>
+<p>Find me in app/views/currencies/index.html.erb</p>
+
+<% @currencies.each do |currency| %>
+<%=currency.name %>
+<p><%=currency.symbol %></p>
+<% end %>
+
+<%= javascript_pack_tag 'index' %>
+
+<% if user_signed_in? %>
+<%= link_to 'log out', destroy_user_session_url, method: :delete %>
+<% else %>
+<%= link_to 'log in', new_user_session_url %>
+<% end %>
