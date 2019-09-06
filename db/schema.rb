@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_070924) do
+ActiveRecord::Schema.define(version: 2019_09_06_023836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 2019_09_05_070924) do
     t.string "slug"
     t.string "symbol"
     t.text "flagURL"
+  end
+
+  create_table "currency_lists", force: :cascade do |t|
+    t.bigint "currency_id", null: false
+    t.bigint "list_id", null: false
+    t.string "name"
+    t.string "slug"
+    t.string "symbol"
+    t.text "flagURL"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["currency_id"], name: "index_currency_lists_on_currency_id"
+    t.index ["list_id"], name: "index_currency_lists_on_list_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -44,5 +57,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_070924) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "currency_lists", "currencies"
+  add_foreign_key "currency_lists", "lists"
   add_foreign_key "lists", "users"
 end

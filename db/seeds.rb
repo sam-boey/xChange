@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-currency=Currency.create([
+currencies=Currency.create([
   {
     name: "US Dollar",
     slug: "USD",
