@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-
+#jquery
+gem 'jquery-rails'
 #Httparty to get data from API
 gem 'httparty'
 #Use Devise for user authentication
