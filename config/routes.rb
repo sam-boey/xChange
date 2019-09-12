@@ -6,10 +6,5 @@ Rails.application.routes.draw do
   root 'currencies#index'
   post 'calculate', to: 'currencies#calculate'
 
-    namespace :api do
-    namespace :v1 do
-      resources :currencies
+resources :articles
     end
-  end
-
-end
