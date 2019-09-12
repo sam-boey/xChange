@@ -13,6 +13,8 @@ class Converter extends React.Component {
       currencies: []
     };
   }
+
+  //axios function to get api data
   componentDidMount() {
     axios
       .get("https://api.exchangeratesapi.io/latest")
@@ -27,6 +29,8 @@ class Converter extends React.Component {
         console.log("oppps", err);
       });
   }
+
+  //converting the data through getting selected currency
   convertHandler = () => {
     if (this.state.fromCurrency !== this.state.toCurrency) {
       axios
@@ -47,6 +51,8 @@ class Converter extends React.Component {
       this.setState({ result: "You cant convert the same currency!" });
     }
   };
+
+  //select the currency from the drop-down
   selectHandler = event => {
     if (event.target.name === "from") {
       this.setState({ fromCurrency: event.target.value });
